@@ -22,6 +22,20 @@ mongoose
 const { Message } = require('./models/Message')
 const { User } = require('./models/User')
 
+app.get('/about-us', async (req, res) => {
+  const message = {
+    'about me': `I'm Ricky Zhang, a senior majoring in Computer Science at NYU Tandon. I've been coding for about 4 years, but didn't start creating any projects until my second year. After taking a web development course at CAS, I started building several web applications both as a passion and to further my web development skills. Recently I've been exploring other types of projects using C++ and Python.
+
+Outside of education, I've been a huge New York Knicks fan since I was 10. I enjoy playing basketball and go the gym regularly. I also love to watch movies and have made it a habit to visit movie theaters at least once a week for the past 3 years.`,
+
+    'image': 'https://media.licdn.com/dms/image/v2/D5603AQEroHcfzBMKKw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1698386185184?e=1732752000&v=beta&t=zTkTXCiiNrvhzmgU_ZwEt9gKeB9q01tPOxOcJ40zelI'
+  }
+  res.json({
+    message,
+    status: 'all good',
+  });
+})
+
 // a route to handle fetching all messages
 app.get('/messages', async (req, res) => {
   // load all messages from database
